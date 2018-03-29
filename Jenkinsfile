@@ -12,18 +12,16 @@ pipeline {
                 sh 'printenv'
             }
         }
-    }
-
-    stage('Sanity check') {
-        steps {
-            input "Does the staging environment look ok?"
+        stage('Sanity check') {
+            steps {
+                input "Does the staging environment look ok?"
+            }
+        }
+        stage('Deploy - Production') {
+            steps {
+                echo 'Deployed to production!'
+            }
         }
     }
-
-    stage('Deploy - Production') {
-     steps {
-         echo 'Deployed to production!'
-     }
- }
 
 }
